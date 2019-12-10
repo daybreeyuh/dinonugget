@@ -44,8 +44,8 @@ void setup() {
   // Find your port name or number
   int portchoice = 4;
   String portName = Serial.list()[portchoice];
-  println(Serial.list());
- // myPort = new Serial(this, portName, 115200);
+  //println(Serial.list());
+  myPort = new Serial(this, portName, 115200);
 
 
 }   
@@ -68,19 +68,8 @@ void mousePressed() {
   fill(out1, out2, out3);
   
   ellipse(mouseX, mouseY, 10, 10);
- // println(((y/height)*120.0) - 40);
 
-     //translate(0, 0, 0); 
-     //fill(220);
-     //text(out1, -80,-130);
-     //text(out2, -30,-130);
-     //text(out3, 20,-130);
-
-  //rotateX(PI); // make the y axis point up 
-  //translate(Xoffset, -Yoffset); // lower down the arm and move it to the middle so we can see it
-
-
-//  sendDataOut();
+  sendDataOut();
   myPort.write(out1);
   myPort.write(out2);
   int val3 = int(out3);
@@ -98,23 +87,7 @@ void sendDataOut() {
 
   myPort.write(out1);
   myPort.write(out2);
-  //myPort.write(out3);
+  myPort.write(out3);
   //myPort.write('1');
  
 }
-////////////////////////////////////////////////
-
-//void nuMoveTo(int mX, int mY) {
- 
-//  if ((mX < 120) && (mY < 30)) {
-//    // do nothing
-//  } else {
-//    pct = 0.0;
-//    beginX = x;
-//    beginY = y;
-//    endX = mX;
-//    endY = mY;
-//    distX = endX - beginX;
-//    distY = endY - beginY;
-//  }
-//}
